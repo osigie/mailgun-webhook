@@ -1,0 +1,26 @@
+service: text-sns-post-mailgun
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  lambdaHashingVersion: 20201221
+
+functions:
+  subcribe:
+    handler: src/handlers.subscribe
+    events:
+      - http:
+          path: /subscribeMail
+          method: post
+          cors: true
+  publish:
+    handler: src/handlers.publish
+    events:
+      - http:
+          path: /publishMessage
+          method: post
+          cors: true
+
+plugins:
+  - serverless-plugin-typescript
