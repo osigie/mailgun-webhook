@@ -40,7 +40,7 @@ class mailgunService {
 
       const params = {
         Message: JSON.stringify(snsObj),
-        TopicArn: "arn:aws:sns:us-east-1:922327904685:mailgun2",
+        TopicArn: process.env.TopicArn,
       };
 
       // publish to sns
